@@ -1,0 +1,17 @@
+{
+	"items": [
+		{
+		"name": "Verysync",
+		"priority": 0,
+		"items": [
+			{"name": "Start Verysync", "priority": 1, "action": "/mnt/us/extensions/verysync/bin/verysync -home=/mnt/us/extensions/verysync/config &>/mnt/us/verysync.log"},
+			{"name": "Stop Verysync", "priority": 2, "action": "killall verysync"},
+			{"name": "Restart Verysync", "priority": 3, "action": "killall verysync; /mnt/us/extensions/verysync/bin/verysync -home=/mnt/us/extensions/verysync/config &> /mnt/us/verysync.log"},
+			{"name": "Open ALL Firewall ports", "priority": 4, "action": "iptables -A INPUT -i wlan0 -p tcp --dport 8886 -j ACCEPT ; iptables -A INPUT -i wlan0 -p tcp --dport 22000 -j ACCEPT ; iptables -A INPUT -i wlan0 -p tcp --dport 21025 -j ACCEPT"},
+			{"name": "Start Verysync INSECURE Admin", "priority": 5, "action": "/mnt/us/extensions/verysync/bin/verysync -home=/mnt/us/extensions/verysync/config -gui-address '0.0.0.0:8886' -no-restart &>/mnt/us/verysync.log"},
+			{"name": "Close INSECURE Admin port", "priority": 6, "action": "iptables -D INPUT -i wlan0 -p tcp --dport 8886 -j ACCEPT"},
+			{"name": "Close ALL Verysync ports", "priority": 7, "action": "iptables -D INPUT -i wlan0 -p tcp --dport 8886 -j ACCEPT ; iptables -D INPUT -i wlan0 -p tcp --dport 22000 -j ACCEPT ; iptables -D INPUT -i wlan0 -p tcp --dport 21025 -j ACCEPT"}
+		  ]
+		}
+	]
+}

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension>
 	<information>
-		<name>Syncthing</name>
+		<name>verysync</name>
 		<version>1.0</version>
-		<author>Guten</author>
-		<id>Syncthing</id>
+		<author>powersee</author>
+		<id>verysync</id>
 	</information>
 	<menus>
 		<menu type="json" dynamic="true">menu.json</menu>
